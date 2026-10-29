@@ -1,0 +1,16 @@
+﻿flowchart TD
+    U[User research request] --> P[Research planner]
+    P --> S[Agent state and bounded research loop]
+    S --> D[Validated tool dispatcher]
+    D --> T[Search and retrieval]
+    D --> C[Calculations and company comparisons]
+    T --> E[Source store and evidence collector]
+    C --> E
+    E --> V[Evidence store with provenance]
+    V --> R[Report generator]
+    R --> Q[Quality control]
+    Q --> H{Human review}
+    H -->|Approve| A[Recorded approval gate]
+    A --> PUB[Report publisher]
+    H -->|Reject| X[Rejected; no publication]
+    H -->|More research or scope change| S

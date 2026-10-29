@@ -1,0 +1,114 @@
+{
+  "$defs": {
+    "ResearchQuestion": {
+      "additionalProperties": false,
+      "properties": {
+        "question_id": {
+          "description": "Unique question ID, such as Q1 or Q2.",
+          "pattern": "^Q[1-9][0-9]*$",
+          "title": "Question Id",
+          "type": "string"
+        },
+        "question": {
+          "maxLength": 500,
+          "minLength": 10,
+          "title": "Question",
+          "type": "string"
+        },
+        "purpose": {
+          "maxLength": 300,
+          "minLength": 5,
+          "title": "Purpose",
+          "type": "string"
+        },
+        "search_queries": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 5,
+          "minItems": 1,
+          "title": "Search Queries",
+          "type": "array"
+        },
+        "priority": {
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ],
+          "title": "Priority",
+          "type": "string"
+        }
+      },
+      "required": [
+        "question_id",
+        "question",
+        "purpose",
+        "search_queries",
+        "priority"
+      ],
+      "title": "ResearchQuestion",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "research_topic": {
+      "maxLength": 300,
+      "minLength": 5,
+      "title": "Research Topic",
+      "type": "string"
+    },
+    "research_objective": {
+      "maxLength": 1000,
+      "minLength": 10,
+      "title": "Research Objective",
+      "type": "string"
+    },
+    "scope_included": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 10,
+      "minItems": 1,
+      "title": "Scope Included",
+      "type": "array"
+    },
+    "scope_excluded": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 10,
+      "title": "Scope Excluded",
+      "type": "array"
+    },
+    "sub_questions": {
+      "items": {
+        "$ref": "#/$defs/ResearchQuestion"
+      },
+      "maxItems": 8,
+      "minItems": 2,
+      "title": "Sub Questions",
+      "type": "array"
+    },
+    "completion_criteria": {
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 8,
+      "minItems": 1,
+      "title": "Completion Criteria",
+      "type": "array"
+    }
+  },
+  "required": [
+    "research_topic",
+    "research_objective",
+    "scope_included",
+    "scope_excluded",
+    "sub_questions",
+    "completion_criteria"
+  ],
+  "title": "ResearchPlan",
+  "type": "object"
+}

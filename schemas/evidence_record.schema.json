@@ -1,0 +1,101 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "evidence_id": {
+      "description": "Stable evidence ID, such as E1.",
+      "pattern": "^E[1-9][0-9]*$",
+      "title": "Evidence Id",
+      "type": "string"
+    },
+    "question_id": {
+      "description": "Research-plan question this evidence supports.",
+      "pattern": "^Q[1-9][0-9]*$",
+      "title": "Question Id",
+      "type": "string"
+    },
+    "claim": {
+      "maxLength": 2000,
+      "minLength": 5,
+      "title": "Claim",
+      "type": "string"
+    },
+    "claim_type": {
+      "enum": [
+        "fact",
+        "inference",
+        "recommendation",
+        "uncertainty"
+      ],
+      "title": "Claim Type",
+      "type": "string"
+    },
+    "source_ref": {
+      "description": "Reference that must resolve in the evidence store.",
+      "maxLength": 300,
+      "minLength": 1,
+      "title": "Source Ref",
+      "type": "string"
+    },
+    "source_kind": {
+      "enum": [
+        "retrieved_document",
+        "search_result",
+        "calculation",
+        "model_generated"
+      ],
+      "title": "Source Kind",
+      "type": "string"
+    },
+    "source_detail": {
+      "maxLength": 1000,
+      "minLength": 3,
+      "title": "Source Detail",
+      "type": "string"
+    },
+    "credibility": {
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Credibility",
+      "type": "number"
+    },
+    "recency": {
+      "maxLength": 200,
+      "minLength": 1,
+      "title": "Recency",
+      "type": "string"
+    },
+    "corroboration_count": {
+      "maximum": 100,
+      "minimum": 0,
+      "title": "Corroboration Count",
+      "type": "integer"
+    },
+    "confidence": {
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Confidence",
+      "type": "number"
+    },
+    "analyst_notes": {
+      "default": "",
+      "maxLength": 1000,
+      "title": "Analyst Notes",
+      "type": "string"
+    }
+  },
+  "required": [
+    "evidence_id",
+    "question_id",
+    "claim",
+    "claim_type",
+    "source_ref",
+    "source_kind",
+    "source_detail",
+    "credibility",
+    "recency",
+    "corroboration_count",
+    "confidence"
+  ],
+  "title": "EvidenceRecord",
+  "type": "object"
+}
