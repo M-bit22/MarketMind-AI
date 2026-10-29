@@ -5,3 +5,4 @@ pydantic
 pytest
 tenacity
 beautifulsoup4
+ddgs
